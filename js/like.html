@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+
+</head>
+<body>
+    <div class='container'>
+        <div class='heart'>
+            ♥
+        </div>
+        <div class='bubble'></div>
+    </div>
+
+</div>
+
+
+</body>
+<style>
+    .container {
+  width: 650px;
+  height: 140px;
+  padding-left: 30px;
+  padding-top: 15px;
+  margin: 0 auto;
+  margin-bottom: -49px;
+  position: relative;
+  background: #fff;
+  border: 1px solid #e1e8ed;
+  -moz-transform: scale(0.7);
+  -ms-transform: scale(0.7);
+  -webkit-transform: scale(0.7);
+  transform: scale(0.7);
+  font-size: 1.3em;
+}
+
+.heart {
+  margin-top: -10px;
+  width: 100px;
+  text-align: center;
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Verdana, sans-serif;
+  color: #aab8c2;
+  font-size: 30px;
+  cursor: pointer;
+}
+.heart:hover {
+  color: #ff1100;
+}
+.heart:after {
+  content: "3.3k";
+  position: absolute;
+  font-size: 0.6em;
+  padding-top: 12px;
+  padding-left: 4px;
+}
+
+.clicked {
+  color: #ff1100;
+  -moz-animation: grow 0.5s;
+  -webkit-animation: grow 0.5s;
+  animation: grow 0.5s;
+}
+
+.bubble {
+  position: relative;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background: #b184f1;
+  top: -40px;
+  left: 34px;
+  z-index: -5;
+  display: none;
+}
+.bubble:after {
+  content: '';
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  top: 4px;
+  left: 4px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.bubbleclick {
+  display: inherit;
+  background: #fff;
+  -moz-animation: like 0.5s;
+  -webkit-animation: like 0.5s;
+  animation: like 0.5s;
+}
+
+@-moz-keyframes like {
+  0% {
+    -moz-transform: scale(0.1);
+    transform: scale(0.1);
+    background: #c22f46;
+  }
+  15% {
+    -moz-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  20% {
+    background: #b184f1;
+  }
+  25%, 100% {
+    background: #fff;
+  }
+}
+@-webkit-keyframes like {
+  0% {
+    -webkit-transform: scale(0.1);
+    transform: scale(0.1);
+    background: #c22f46;
+  }
+  15% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  20% {
+    background: #b184f1;
+  }
+  25%, 100% {
+    background: #fff;
+  }
+}
+@keyframes like {
+  0% {
+    -moz-transform: scale(0.1);
+    -ms-transform: scale(0.1);
+    -webkit-transform: scale(0.1);
+    transform: scale(0.1);
+    background: #c22f46;
+  }
+  15% {
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  20% {
+    background: #b184f1;
+  }
+  25%, 100% {
+    background: #fff;
+  }
+}
+@-moz-keyframes grow {
+  0% {
+    -moz-transform: scale(0);
+    transform: scale(0);
+  }
+  15% {
+    -moz-transform: scale(0);
+    transform: scale(0);
+  }
+  35% {
+    -moz-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  100% {
+    -moz-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes grow {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  15% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  35% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes grow {
+  0% {
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  15% {
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  35% {
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  100% {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+</style>
+<script>
+    $('.heart').click(function(){
+  $(this).toggleClass('clicked');
+  $(this).parent().find('.bubble').toggleClass('bubbleclick');
+});
+</script>
+</html>

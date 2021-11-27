@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+
+</head>
+<body>
+    <div class="wrapper-demo">
+  <button class="toggle-icon"></button>
+</div>
+
+</body>
+<style>
+    @charset "UTF-8";
+/* == Unicodes cheatsheet ==
+   http://fontawesome.bootstrapcheatsheets.com
+*/
+.toggle-icon {
+  width: 45pt;
+  height: 45pt;
+  font-size: 45pt;
+  position: relative;
+  color: gray;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+.toggle-icon:before, .toggle-icon:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.3s ease-out;
+  content: "";
+  font-family: fontawesome;
+}
+.toggle-icon:hover:before {
+  transform: scale(1.2);
+}
+.toggle-icon:active:before {
+  transition: none;
+  transform: scale(1);
+}
+.toggle-icon:after {
+  opacity: 0;
+}
+.toggle-icon.-checked {
+  color: #A12C2C;
+}
+.toggle-icon.-checked:before {
+  content: "";
+}
+.toggle-icon.-checked:after {
+  content: "";
+  animation: likeFly 0.6s ease-in;
+}
+
+@keyframes heartbeat {
+  from {
+    opacity: 1;
+  }
+  to {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+@keyframes likeFly {
+  from {
+    opacity: 1;
+  }
+  to {
+    transform: scale(3) rotate(45deg) translateY(-90px);
+    opacity: 0;
+  }
+}
+</style>
+<script>
+    $('.toggle-icon').click(function(){
+  $(this).toggleClass('-checked');
+});
+
+</script>
+</html>

@@ -1,0 +1,3 @@
+encoding utf-8 설정 6개
+preferenes -> maven > user setttings -> user settings browser 
+->메이븐 config -> settings.xml

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/default/default.css"/>
+
+</head>
+<body>
+    <section class="product-info-container">
+        <div class="product-info-list">
+            <div class="product-info-list-item product-spec"><div class="product-info-list-title text_title">상품상세</div>
+                <div class="product-info-content" id="first">
+
+
+
+
+                    
+                </div>
+            </div>
+            <div class="product-info-list-item product-review"><div class="product-info-list-title text_title">리뷰</div>
+                <div class="product-info-content" id="second">
+        
+        
+        
+                    <div class="review-container">
+                        <div class="review-padding">
+                            <div class="review-inside-container" name="" id="" cols="30" rows="10">
+                                <div class="">
+                                    <div class="reviewer-name">장**</div>
+                                    <div class="star"><img src="/img/star-on.png"><img src="/img/star-on.png"><img src="/img/star-on.png"><img src="/img/star-on.png"><img src="/img/star-on.png"></div>
+                                    <div class="review-date">2021.11.24</div>
+                                </div>
+                                <div class="review-content"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo commodi corrupti fugiat vel placeat nisi sapiente pariatur sunt, libero illum inventore alias facilis error sit omnis, natus laborum minima cumque non? Sapiente voluptatum incidunt quos modi nihil consectetur a nemo. Nesciunt vitae placeat optio cumque corrupti aperiam tenetur eveniet quo!</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            <div class="product-info-list-item product-qna"><div class="product-info-list-title text_title">Q&A</div>
+                <div class="reivew-info-content" id="third">
+
+
+                        <div class="qna-container">
+                            <div class="qna-q">
+                                <div class="qna-q-container" name="" id="" cols="30" rows="10">
+                                    <div class="qna-q-info">
+                                        <div class="q-float qna-q-name">장**</div>
+                                        <div class="qna-q-date text_sub_title">2021.11.24</div>
+                                    </div> 
+                                    <div class="qna-q-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga eaque veniam commodi, nesciunt placeat unde nihil doloribus, soluta dolores similique, molestiae ducimus est optio ullam! Veniam repellat vel, velit adipisci, molestiae tempore dignissimos corporis laborum totam qui explicabo cumque cum consectetur et a quos iste aut voluptate accusantium. Recusandae, esse!.</div>
+                                </div>                            
+                            </div>
+                            <div class="qna-a">
+                                <div class="qna-a-container" name="" id="" cols="30" rows="10">
+                                    <div class="qna-a-info">
+                                        <div class="answer-status q-float cart_btn">답변완료</div>
+                                        <div class="qna-a-date text_sub_title">2021.11.24</div>
+                                    </div>
+                                    <div class="qna-a-content"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo commodi corrupti fugiat vel placeat nisi sapiente pariatur sunt, libero illum inventore alias facilis error sit omnis, natus laborum minima cumque non? Sapiente voluptatum incidunt quos modi nihil consectetur a nemo. Nesciunt vitae placeat optio cumque corrupti aperiam tenetur eveniet quo!</div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<style>
+    .star{
+        float: left;
+        padding-right: 7px;
+    }
+    .yellow-star{
+        color:yellow;
+    }
+    .white-star{
+        color: black;
+        
+    }
+    .review-date,.reviewer-name{
+        font-weight: 600;
+    }
+    .review-date{
+        font-size: 13px;
+        font-weight: 300;
+    }
+    .review-container{
+        border-bottom: solid 1px #EAEBED;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+    }
+    .review-inside-container{
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 5px;
+        background-color:  #fcfcfc;
+        font-size: 16px;
+        resize: both;
+        padding: 20px;
+        clear: left;
+        
+    }
+    /*
+    background: #9ac6e8;
+    */
+
+    .qna-q-container{
+        padding: 5px;
+    }
+    .qna-q-content{
+        clear: left;
+    }
+
+
+    .qna-container{
+        border-bottom: solid 1px #EAEBED;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+    }
+    .qna-a-date, .qna-q-date{
+        font-size: 13px;
+    }
+    .qna-container{
+        width: 100%;
+        /**/
+    }
+    .qna-a-content, .review-content{
+        clear: left;
+        padding-top: 5px;
+    }
+
+    .qna-a-container{
+        width: 100%;
+        box-sizing: border-box;
+        background-color:  #EAEBED;
+        border-radius: 5px;
+        font-size: 16px;
+        resize: both;
+        padding: 20px;
+        clear: left;
+    }
+    .answer-status{
+        width: 60px;
+        height: 20px;
+        border-radius: 5px;
+        font-size: 11px;
+    }
+    .q-float {
+        float: left;
+        margin-right: 5px;
+    }
+    .qna-q-name{
+        font-weight: 600;
+        line-height: 17px;
+        margin-right: 10px;
+        
+    }
+    .qna-q, .qna-a, .review-padding{
+        padding: 20px;
+    }
+    .product-info-list{
+        display: flex;
+        position: relative;
+        /*
+        background-color: red;
+        */
+        width: 500px;
+    }
+    .product-info-list-item{
+        width: 300px;
+        border: 1px solid black;
+    }
+    .product-info-list-title{
+        cursor: pointer;
+        text-align: center;
+    }
+    .product-info-content, .reivew-info-content{
+        border-top: 1px solid black;
+    }
+    .product-info-content, .reivew-info-content{
+        font-size: 15px;
+        position: absolute;
+        left: 0;        
+        /*
+        background-color: red;
+        
+        */
+        width: 100%;
+        display: none;
+    }
+    #third{
+    }
+    #second{
+        display: block;
+    }
+    
+</style>
+</html>

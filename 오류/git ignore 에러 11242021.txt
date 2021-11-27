@@ -1,0 +1,4 @@
+스프링에서 테스트 중인데
+No mapping found for HTTP request with URI [/favicon.ico] in DispatcherServlet with name 'appServlet'
+favicon.ico를 못찾는 오류가 뜨긴하는데 선생님께서 무시해도 된다고 하셔서 따로수정하지않았습니다. 참고 해주세요!
+
