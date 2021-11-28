@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <div class="navigation">
+        <nav role="navigation">
+            <ul>
+                <li class=active><a href="">쇼핑</a>
+                <li ><a href="#">식품</a>
+                <li ><a href="#">Qui consulter ?</a>
+                <li ><a href="#">Les th&eacute;rapies</a>
+                <li ><a href="#">Pour qui ?</a>
+                <li ><a href="#">Psychotherapies</a>
+                <li ><a href="#">Relaxation</a>
+                <li ><a href="#">Psychomotricit&eacute;</a>
+                <li ><a href="#">Bilans</a>
+                <li ><a href="#">Qui suis-je ?</a>
+                <li ><a href="#">Le cabinet</a>
+                <li ><a href="#">Annuaire</a>
+            </ul>
+        </nav>
+    </div>
+    
+</body>
+<style>
+
+    :root {
+--first-color: #081f37;
+	
+--second-color: #5fc9f3;
+
+--third-color: #2e79ba;
+
+--fourth-color: #1e549f;
+
+--main-color: #9ac6e8;
+
+}
+.first-color { 
+	background: #081f37; 
+}
+	
+.second-color { 
+	background: #5fc9f3; 
+}
+
+.third-color { 
+	background: #2e79ba; 
+}
+
+.fourth-color { 
+	background: #1e549f; 
+}
+
+
+.active a {
+  background: var(--main-color);
+}
+
+.navigation ul {
+}
+.navigation ul li {
+  list-style: none;
+}
+.navigation ul a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.2em;
+  font-family: "consolas";
+}
+
+.navigation {
+  width: 73.68421%;
+  float: left;
+  margin-right: 5.26316%;
+  padding: 0px;
+}
+.navigation li:first-child a {
+  border-left: 10px solid var(--third-color);
+}
+.navigation li:first-child a:after {
+  background:  var(--third-color);
+}
+.navigation li:nth-child(2) a {
+  border-left: 10px solid var(--fourth-color);
+}
+.navigation li:nth-child(2) a:after {
+  background: var(--fourth-color);
+}
+.navigation li:nth-child(3) a {
+  border-left: 10px solid var(--second-color);
+}
+.navigation li:nth-child(3) a:after {
+  background: var(--second-color);
+}
+.navigation li:nth-child(4) a {
+  border-left: 10px solid var(--first-color);
+}
+.navigation li:nth-child(4) a:after {
+  background:  var(--first-color);
+}
+.navigation li:nth-child(5) a {
+  border-left: 10px solid var(--third-color);
+}
+.navigation li:nth-child(5) a:after {
+  background:  var(--third-color);
+}
+.navigation li:nth-child(6) a {
+  border-left: 10px solid var(--fourth-color);
+}
+.navigation li:nth-child(6) a:after {
+  background: var(--fourth-color);
+}
+.navigation li:nth-child(7) a {
+  border-left: 10px solid var(--second-color);
+}
+.navigation li:nth-child(7) a:after {
+  background: var(--second-color);
+}
+.navigation li:nth-child(8) a {
+  border-left: 10px solid var(--first-color);
+}
+.navigation li:nth-child(8) a:after {
+  background:  var(--first-color);
+}
+.navigation li:nth-child(9) a {
+  border-left: 10px solid var(--third-color);
+}
+.navigation li:nth-child(9) a:after {
+  background:  var(--third-color);
+}
+.navigation li:nth-child(10) a {
+  border-left: 10px solid var(--fourth-color);
+}
+.navigation li:nth-child(10) a:after {
+  background: var(--fourth-color);
+}
+.navigation li:nth-child(11) a {
+  border-left: 10px solid var(--second-color);
+}
+.navigation li:nth-child(11) a:after {
+  background:  var(--second-color);
+}
+.navigation li:nth-child(12) a {
+  border-left: 10px solid var(--first-color);
+}
+.navigation li:nth-child(12) a:after {
+  background:  var(--first-color);
+}
+.navigation li a {
+  display: block;
+  width: 165px;
+  position: relative;
+  color: #000000;
+  padding: 10px;
+  z-index: 2;
+}
+.navigation li a:after {
+  content: "";
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 0px;
+  position: absolute;
+  transition: all 0.5s ease 0s;
+  z-index: -1;
+}
+.navigation li a:hover {
+  color: #fff;
+}
+.navigation li a:hover:after {
+  width: 100%;
+}
+
+
+
+
+</style>
+</html>

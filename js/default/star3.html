@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="star-rating">
+    
+    <input id="star-5x" type="radio" name="rating" value="star-5" />
+    <label for="star-5x" title="5 stars">
+        <i class="fa fa-star"></i>
+    </label>
+
+    <input id="star-4x" type="radio" name="rating" value="star-4" />
+    <label for="star-4x" title="4 stars">
+        <i class="fa fa-star"></i>
+    </label>
+
+    <input id="star-3x" type="radio" name="rating" value="star-3" checked />
+    <label for="star-3x" title="3 stars">
+        <i class="fa fa-star"></i>
+    </label>
+
+    <input id="star-2x" type="radio" name="rating" value="star-2" />
+    <label for="star-2x" title="2 stars">
+        <i class="fa fa-star"></i>
+    </label>
+
+    <input id="star-1x" type="radio" name="rating" value="star-1" />
+    <label for="star-1x" title="1 star">
+        <i class="fa fa-star"></i>
+    </label>
+    
+</div>
+<style>
+    .star-rating {
+    display: block;
+    margin-bottom: 15px;
+    direction: rtl;
+    text-align: center;
+    margin-top: 10px;
+     font-size:5px;
+}
+.star-rating input[type="radio"] {
+    display: none
+}
+.star-rating > label {
+    color: #ccc;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+    font-size: 50px
+}
+.star-rating > label:hover,
+.star-rating > label:hover ~ label,
+.star-rating > input[type="radio"]:checked ~ label
+{color: #f2b600}
+</style>
+</body>
+</html>
