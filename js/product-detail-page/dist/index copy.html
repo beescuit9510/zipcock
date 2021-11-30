@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - product detail page</title>
+  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css'>
+<!-- partial -->
+<script src='https://code.jquery.com/jquery-3.4.1.slim.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js'></script>
+<link rel="stylesheet" type="text/css" href="/default/default.css"/>
+
+
+</head>
+<style>
+	.nav-link{
+		margin-left:25px;
+		margin-right:25px;
+	}
+</style>
+<script>
+
+$(document).ready(function () {
+	$(".likeButton").click(function() {
+		$(this).toggleClass("liked");
+	});
+});
+</script>
+
+<body>
+	
+<!-- partial:index.partial.html -->
+<div class="container">
+	<div class="row mb-4">
+		<div class="col-md-8">
+		</div>
+		<div class="col-md-1">
+		</div>
+		<div class="col-md-1">
+		</div>
+		<div class="col-md-2">
+		</div>
+	</div>
+	<div class="row mb-4">
+		<div class="col-md-2">
+      <a href="#"><img src="" class="img-thumbnail p-0 border-0" /></a>
+    </div>
+		<div class="col-md-6">
+			<div class="input-group input-group-lg">
+				<input type="text" id="" name="" class="form-control" placeholder="상품을 검색해보세요" />
+				<select class="form-control form-control-lg rounded-0">
+					<option>최신순</option>
+					<option>낮은 가격순</option>
+					<option>높은 가격순</option>
+				</select>
+				<div class="input-group-append">
+					<button class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i></button>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-1">
+			<button class="btn btn-outline-secondary btn-block btn-lg" type="button">
+				<i class="fas fa-sync-alt"></i>
+			</button>
+		</div>
+		<div class="col-md-1">
+		</div>
+
+		<div class="col-md-2">
+		</div>
+	</div>
+	<div class="row mb-5">
+		<div class="col-md-12">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="#">생활용품</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">뷰티</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">헬스/건강식품</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">주방용품</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">식품</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">완구, 취미</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">문구, 오피스</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">반려동물</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row mb-5">
+		<div class="col-md-8">
+			<div class="row">
+				
+				<div class="col-md-12 mb-4">
+					<img alt="" class="img-thumbnail p-0 border-0" src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" />
+				</div>
+				<div class="col-md-3 mb-4">
+					<img alt="" class="img-thumbnail p-0 border-0" src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" />
+				</div>
+				<!-- 
+				<div class="col-md-3 mb-4">
+					<img alt="" class="img-thumbnail p-0 border-0" src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" />
+				</div>
+				-->
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<div class="card-body">
+					<h1>새콤달콤 새콤새콤 제주 사과</h1>
+					<p class="m-0">
+						<div class="star">
+
+<div class="star-rating js-star-rating">
+  <input class="star-rating__input" type="radio" name="rating" value="1"><i class="star-rating__star"></i>
+  <input class="star-rating__input" type="radio" name="rating" value="2"><i class="star-rating__star"></i>
+  <input class="star-rating__input" type="radio" name="rating" value="3"><i class="star-rating__star"></i>
+  <input class="star-rating__input" type="radio" name="rating" value="4"><i class="star-rating__star"></i>
+  <input class="star-rating__input" type="radio" name="rating" value="5"><i class="star-rating__star"></i>
+  <div class="current-rating current-rating--5 js-current-rating"><i class="star-rating__star">AAA</i>
+  </div>
+</div>
+													<span class="review-count goods_detail">(1222)</span>
+													</div>
+												</p>
+													<!--
+					<p class="m-0">
+						<i class="fas fa-star fa-sm"></i>
+						<i class="fas fa-star fa-sm"></i>
+						<i class="fas fa-star fa-sm"></i>
+						<i class="far fa-star fa-sm"></i>
+						<i class="far fa-star fa-sm"></i>
+
+					</p>
+				-->
+					<ul class="list-group list-group-flush mb-4">
+						<li class="list-group-item pl-0 pr-0 pt-2 pb-2">Brand: <a href="#">Apple</a></li>
+						<li class="list-group-item pl-0 pr-0 pt-2 pb-2">Model: 10 Pro Max</li>
+						<li class="list-group-item pl-0 pr-0 pt-2 pb-2">Reward Points: 543</li>
+						<li class="list-group-item pl-0 pr-0 pt-2 pb-2">Availability: In Stock</li>
+						<li class="list-group-item pl-0 pr-0 pt-2 pb-2">Price in reward points: 400</li>
+						<li class="list-group-item pl-0 pr-0">
+							<p class="m-0 h2">$1.827,82 <small><s>$2.127,82</s></small></p>
+							<p class="m-0 text-muted">Ex Tax: $1.549,00</p>
+						</li>
+						<li class="list-group-item pl-0 pr-0 pt-2 pb-2">Market Price: $1.134,82</li>
+						<li class="list-group-item pl-0 pr-0 pt-2 pb-2">List Price: $1.256,82</li>
+						<li class="list-group-item pl-0 pr-0 pt-2 pb-2">Cost Price: $1.487,82</li>
+						<li class="list-group-item pl-0 pr-0 pt-2 pb-2">Wholesale Price: $1.721,82</li>
+					</ul>
+					<div class="input-group input-group-lg mb-4">
+						<input type="number" class="form-control text-center" placeholder="Quantity" id="" name="" value="1" min="1" max="5" />
+						<div class="input-group-append">
+							<span class="input-group-text">Quantity</span>
+						</div>
+					</div>
+					<div>
+						<div class="likeButton-div-wrap">
+							<span class="likeButton">♥</psn>
+						</div>
+						<button class="cart_btn-pos buy_btn">장바구니 담기</button>
+	
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-12 mt-4">
+			<ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+				<li class="nav-item">
+					<a class="nav-link lead active" role="tab" data-toggle="tab" href="#tabDescription">상품 상세</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link lead" role="tab" data-toggle="tab" href="#tabReview">상품후기</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link lead" role="tab" data-toggle="tab" href="#tabFaq">Q&A</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link lead" role="tab" data-toggle="tab" href="#tabVideo">배송/교환/반품 안내</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link lead" role="tab" data-toggle="tab" href="#tabSpecification">판매자 정보</a>
+				</li>
+			</ul>
+			<div class="tab-content" id="myTabContent">
+				<div class="tab-pane pt-4 active" role="tabpanel" id="tabDescription">
+					<p>Morbi et feugiat massa, ut pretium felis. Fusce lobortis quam a turpis iaculis accumsan. In ac odio vitae augue vulputate egestas. Nulla iaculis mi in lectus accumsan pellentesque. Integer neque est, imperdiet eget ex at, suscipit euismod eros. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed malesuada elementum accumsan. Suspendisse rhoncus accumsan orci, id blandit ante accumsan viverra. Etiam id tortor in arcu suscipit iaculis. Donec efficitur, leo nec pulvinar pulvinar, nibh ligula feugiat augue, euismod condimentum turpis nulla nec ipsum. Praesent id tristique massa, id rhoncus diam. Sed vel odio porttitor, pretium augue nec, placerat neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ac elit sapien. Nullam semper laoreet ligula ut varius. Fusce interdum scelerisque porttitor.</p>
+					<p>Nunc mollis velit libero, vel semper lorem bibendum eu. Nam in purus arcu. Quisque et tortor ac nunc ullamcorper interdum vel eget sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam ultrices cursus turpis interdum vulputate. Nullam vulputate, nisi ut hendrerit rhoncus, nunc nibh ultrices lorem, at facilisis lorem mauris id ex. Integer nec faucibus odio. Sed nec risus ut nisi tempus viverra. Vivamus hendrerit faucibus lorem. Curabitur vel laoreet est, nec accumsan lacus.</p>
+					<p>Maecenas tempus eu ex vitae vulputate. Cras non elit scelerisque, tempus risus eu, porta ipsum. Morbi elementum, lorem a viverra dictum, nibh urna sollicitudin elit, at vestibulum nisi urna at metus. Vivamus id volutpat nibh, finibus vehicula velit. In hac habitasse platea dictumst. Aliquam pharetra lectus massa, et dictum felis molestie et. Nunc sed nibh ac felis consequat consectetur ut sed lorem. Suspendisse tempus tincidunt eros vel pharetra. Mauris pellentesque lacus posuere lacus pellentesque lacinia. Nunc sit amet eros eu ipsum cursus pharetra. Mauris non nunc enim. Vestibulum lectus leo, dictum ut risus sed, semper tristique turpis. Etiam nec libero sed libero tristique condimentum.</p>
+					<p>In hac habitasse platea dictumst. Integer ut dignissim diam. Mauris varius eget erat quis sollicitudin. Sed congue nulla lacus. Proin nec hendrerit eros. Proin consequat vehicula quam commodo vestibulum. Etiam nec ligula mattis, laoreet ipsum vel, ultricies nisi. Vestibulum ut dignissim velit. In gravida velit vel vestibulum viverra. Sed convallis at turpis ut pharetra. Nulla eleifend urna arcu, a semper eros ultrices sit amet. Vivamus eget sapien ipsum. Etiam euismod, ante quis pellentesque pellentesque, mauris leo rhoncus dui, ut faucibus felis dui non odio. Etiam eleifend lobortis eros, sed aliquam elit fermentum et. Sed vel lectus accumsan, tempor magna venenatis, euismod orci.</p>
+				</div>
+				<div class="tab-pane pt-4" role="tabpanel" id="tabSpecification">
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<td colspan="2"><strong>Memory</strong></td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>test 1</td>
+								<td>16GB</td>
+							</tr>
+						</tbody>
+						<thead>
+							<tr>
+								<td colspan="2"><strong>Processor</strong></td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>No. of Cores</td>
+								<td>4</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="tab-pane pt-4" role="tabpanel" id="tabReview">
+					<!--
+						
+					<div class="card mb-4">
+						<div class="card-header">Write a read</div>
+						<div class="card-body">
+							<form>
+								<div class="form-group row">
+									<label for="" class="col-sm-12 col-form-label">Your Name</label>
+									<div class="col-sm-12">
+										<input type="text" class="form-control" id="" name="" placeholder="Your Name" />
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="" class="col-sm-12 col-form-label">Your Review</label>
+									<div class="col-sm-12">
+										<textarea class="form-control" id="" name="" placeholder="Your Review" rows="3"></textarea>
+										<small id="" class="form-text text-muted">Note: HTML is not translated!</small>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="card-footer">
+							<input class="btn btn-primary" type="submit" value="Submit">
+						</div>
+					</div>
+					-->
+
+					<div class="card">
+						<div class="card-header">Write a review</div>
+						<div class="card-body">
+							<table class="table table-bordered">
+								<tbody>
+									<tr>
+										<td colspan="2">
+											<strong>Ilea Heidemann</strong>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2">
+											<p>Quaerat et sit sequi unde nostrum, accusantium accusamus ad placeat. Libero sit ut sit ut in consequuntur, sed recusandae esse; qui eum alias fuga ratione ut reiciendis commodi et laboriosam? Earum eveniet et neque est alias commodi voluptatem veniam est. Ad aut sit excepturi unde laudantium voluptatem reiciendis nostrum eos. Molestiae omnis consectetur, culpa in sed aliquam porro quas asperiores. Eum modi, a incidunt dolor ut molestiae aut accusamus aspernatur! Tenetur sed eveniet nesciunt, quam reprehenderit modi repellat quasi voluptatem. Sit quia nulla similique omnis in ipsa quasi ipsam consectetur!</p>
+											<p class="m-0">18/03/2013</p>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2">
+											<strong>Customer Rating: </strong>
+											<span class="fa fa-stack">
+												<i class="fas fa-star fa-stack-1x"></i>
+												<i class="far fa-star fa-stack-1x"></i>
+											</span>
+											<span class="fa fa-stack">
+												<i class="far fa-star fa-stack-1x"></i>
+											</span>
+											<span class="fa fa-stack">
+												<i class="far fa-star fa-stack-1x"></i>
+											</span>
+											<span class="fa fa-stack">
+												<i class="far fa-star fa-stack-1x"></i>
+											</span>
+											<span class="fa fa-stack">
+												<i class="far fa-star fa-stack-1x"></i>
+											</span>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<table class="table table-bordered">
+								<tbody>
+									<tr>
+										<td colspan="2">
+											<strong>Jelea lehwe</strong>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2">
+											<p>Libero sit ut sit ut in consequuntur, sed recusandae esse; qui eum alias fuga ratione ut reiciendis commodi et laboriosam? Earum eveniet et neque est alias commodi voluptatem veniam est. Ad aut sit excepturi unde laudantium voluptatem reiciendis nostrum eos. Molestiae omnis consectetur, culpa in sed aliquam porro quas asperiores.</p>
+											<p class="m-0">18/03/2013</p>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2">
+											<strong>Customer Rating: </strong>
+											<span class="fa fa-stack">
+												<i class="fas fa-star fa-stack-1x"></i>
+												<i class="far fa-star fa-stack-1x"></i>
+											</span>
+											<span class="fa fa-stack">
+												<i class="far fa-star fa-stack-1x"></i>
+											</span>
+											<span class="fa fa-stack">
+												<i class="far fa-star fa-stack-1x"></i>
+											</span>
+											<span class="fa fa-stack">
+												<i class="far fa-star fa-stack-1x"></i>
+											</span>
+											<span class="fa fa-stack">
+												<i class="far fa-star fa-stack-1x"></i>
+											</span>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane pt-4" role="tabpanel" id="tabFaq">
+					<div class="accordion" id="accordionExample">
+						<div class="card">
+							<div class="card-header bg-white" id="headingOne" data-toggle="collapse" data-target="#collapseOne">Collapsible Group Item #1</div>
+							<div id="collapseOne" class="collapse show" data-parent="#accordionExample">
+								<div class="card-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-header bg-white" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo">Collapsible Group Item #2</div>
+							<div id="collapseTwo" class="collapse" data-parent="#accordionExample">
+								<div class="card-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-header bg-white" id="headingThree" data-toggle="collapse" data-target="#collapseThree">Collapsible Group Item #3</div>
+							<div id="collapseThree" class="collapse" data-parent="#accordionExample">
+								<div class="card-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane pt-4" role="tabpanel" id="tabVideo">
+					<div class="row">
+						<div class="col-md-3">
+							<div class="card">
+								<img class="card-img-top" src="https://via.placeholder.com/200x200" alt="">
+								<div class="card-footer">
+									<p class="card-text"><a href="#">Usage Video</a></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="card">
+								<img class="card-img-top" src="https://via.placeholder.com/200x200" alt="">
+								<div class="card-footer">
+									<p class="card-text"><a href="#">Settings Video</a></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="card">
+								<img class="card-img-top" src="https://via.placeholder.com/200x200" alt="">
+								<div class="card-footer">
+									<p class="card-text"><a href="#">Experiences Video</a></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="card">
+								<img class="card-img-top" src="https://via.placeholder.com/200x200" alt="">
+								<div class="card-footer">
+									<p class="card-text"><a href="#">Customer Reviews Video</a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane pt-4" role="tabpanel" id="tabBlog">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="card mb-4">
+								<div class="row no-gutters">
+									<div class="col-md-4">
+										<img class="card-img" alt="" src="https://via.placeholder.com/200x230" />
+									</div>
+									<div class="col-md-8">
+										<div class="card-body">
+											<h6 class="card-title">Praesent convallis lacus sed est gravida ultricies.</h6>
+											<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+											<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="card mb-4">
+								<div class="row no-gutters">
+									<div class="col-md-4">
+										<img class="card-img" alt="" src="https://via.placeholder.com/200x230" />
+									</div>
+									<div class="col-md-8">
+										<div class="card-body">
+											<h6 class="card-title">Praesent convallis lacus sed est gravida ultricies.</h6>
+											<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+											<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="card">
+								<div class="row no-gutters">
+									<div class="col-md-4">
+										<img class="card-img" alt="" src="https://via.placeholder.com/200x230" />
+									</div>
+									<div class="col-md-8">
+										<div class="card-body">
+											<h6 class="card-title">Praesent convallis lacus sed est gravida ultricies.</h6>
+											<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+											<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="card">
+								<div class="row no-gutters">
+									<div class="col-md-4">
+										<img class="card-img" alt="" src="https://via.placeholder.com/200x230" />
+									</div>
+									<div class="col-md-8">
+										<div class="card-body">
+											<h6 class="card-title">Praesent convallis lacus sed est gravida ultricies.</h6>
+											<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+											<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row"></div>
+	<div class="row"></div>
+	<div class="row"></div>
+	<div class="row"></div>
+	<div class="row"></div>
+	<div class="row"></div>
+	<div class="row"></div>
+	<div class="row"></div>
+	<div class="row mb-5">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-3">
+							<i class="float-left mr-3 fa-3x fas fa-shipping-fast"></i>
+							<p class="h5">Free shipping & Return <br/><small class="text-muted">For all orders over $500</small></p>
+						</div>
+						<div class="col-md-3">
+							<i class="float-left mr-3 fa-3x fas fa-thumbs-up"></i>
+							<p class="h5">Customer Protection <br/><small class="text-muted">From click to delivery.</small></p>
+						</div>
+						<div class="col-md-3">
+							<i class="float-left mr-3 fa-3x fas fa-umbrella"></i>
+							<p class="h5">Safe Payment <br/><small class="text-muted">Use world’s most secure payment methods.</small></p>
+						</div>
+						<div class="col-md-3">
+							<i class="float-left mr-3 fa-3x fas fa-life-ring"></i>
+							<p class="h5">Support 24/7 <br/><small class="text-muted">We answer for question all time</small></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row mb-5">
+		<div class="col-md-12">
+	
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row mb-5">
+		<div class="col-md-12 mb-5">
+		</div>
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-4">
+		</div>
+		<div class="col-md-12 mt-5 mb-4">
+		</div>
+		<div class="col-md-12">
+		</div>
+		<div class="col-md-12">
+		</div>
+	</div>
+</div>
+
+</body>
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Gorditas);
+
+
+.likeButton {
+	display: inline-block;
+	font-size: 62px;
+	color: #cca2a3;
+	cursor: pointer;
+	-webkit-transform: translate(-50%, -50%);
+	        transform: translate(-50%, -50%);
+	-webkit-transition: all 0.1s ease-in-out;
+	        transition: all 0.1s ease-in-out;
+}
+
+.likeButton.liked {
+	font-size: 20px;
+}
+
+.likeButton:after {
+	display: inline-block;
+	content: "♥";
+	font-size: 1px;
+	color: #D61F12;
+	opacity: 0;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	        transform: translate(-50%, -50%);
+	-webkit-transition: all 0.2s ease-in-out;
+	        transition: all 0.2s ease-in-out;
+}
+
+.likeButton.liked:after {
+	font-size: 62px;
+	opacity: 1;
+}
+.likeButton-div-wrap{
+	margin-top:50px;
+	margin-left: 50px;
+	width:50px;
+	height:100px;
+}
+.likeButton-div-wrap > div{
+	height:50px;
+
+}
+.cart_btn-pos{
+	margin-top: -120px;
+	margin-left: 120px;
+}
+
+.star-rating {
+	font-size: 0;
+	position: relative;
+	width: 92.5px;
+	height: 18px;
+	overflow: hidden;
+	background-image:
+		url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAkCAYAAAAOwvOmAAACZ0lEQVR42s2Yz0sUYRjH+wVmB4lCOgR66BAegoQU/4SgQ4culSeRoEKiU0QRrHpSwcCDFEREBMGSiMIOdpA9bGwbLTML+1MjQlE8GGmXgpTdPk/MxrLMzsDM484ufFne2ff9vp95nnee9905VKlUVFQqlQa1vFRM0un0CaB2TNPsbBmoYrF4E6hKoVC42zJQAMUECiVaAkpSRqT2bKhyPp/vCh0KoBEBqooUPmgFqI+1UMgKFSqbzZ4TkHpxvSc0KFL1xAkKjYUGRepKTlBc/xIKFJNfEoBGyuVyfWFAPXWDIlrTTYWKRqNHmXTLA2ozEokc8QWFwRAGb9EcWkRLXFtGCfSJtolyaAV9k8nQd3tyL23QdxVlUZr2B9vbQPP2vK/QczTDgzOJrv+7azpMoLIYhazXsrn/Dxnbw1Uu7oYE85tI3aqyOBVDq5lAUj4IyEXXhR6Px4/T8WWTgN6lUqmOega3aj0sYT0gmD/43/dVEghrLyZflaHWARoIVKcsyzoppUIJyMDrtErx5HMYs0cBYMoyXnxUK3p1r/MrUtatvs1wp6MBoe4cBJQZcD3FVKEymcxZhUX+K5lMtqtBYXhbAUpSeEUTKuZ1GkCPSfEPj36zKlCya7tVdkDeSC2rppn2e5e+aypQcnpoMMk2k1xrUNNGZA01ALsQGAqjFw7GC5wozniMO0+/zw5jHwaCkruuO/b+REMeprUnjmNS39BejUciEBSp668xW/b7nkB8AFuxffZpn/INxSM8bq+NexI1hXdYs3YKb/iGYvAzWRs+INyidhnfKd9Q8qdCvrVlGEab2+9/AaqhSf4SQ/sOAAAAAElFTkSuQmCC");
+	background-size: contain;
+	margin: auto;
+	margin-left:0px;
+}
+
+.star-rating__star {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	width: 20%;
+	height: 100%;
+	opacity: 0;
+	background-image:
+		url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAkCAYAAAAOwvOmAAACtElEQVR42s2YzWsTQRjG4wf4cRBRRFDRgkEtuzujoOKfIHjw4MWPk4igIuJJRBGqPamg4EEUREQEoSiiYtBDCWibZmakHvSgBil+H9SmbXZGUGl8XsniQpdN2J1mE3gJm8y+89t3nnlmZnP1et1K+NLbYyuXlSRfHi6brxWv1p7ml3QMlC+83UbxupbsUMdAacUeEZRR7FlHQNGQGcl/N6AmRweclZlDGeEdJqAgMJTHMoeCjobCUFryF5lCjQ26qwOYcNSG3O7MoFCVU1FQWnpnMoMykr2OgkJUMoHSwt0YQERXy9nUdihfsotxUL7iF9oK1deXm6Ul+xpbKcU/9/TkZiaCwkK6F9q4jU7uIh4gHuO6n9wZiQWuhyHoVzDIN4gR6gy/fY8BCtvDJ9zzFu1fwvWf47cByo3rAvLca/R7A+2uauVdMoKdqym2899To/FZcmNKlGkIdpMW9//CLXvbQT+WCYxkP2Ej+wOWKWZIjtxmqIovnfWxQh8pds0F2PV2AEFPd36U8wtann1asH1U1mkC+gUNH01kCdDYBoC9s6yfD6bMtqTyqWqxayFZhaXhKkyIdYutmCc+M+AzJ5IDsUm6n/JYdfRgrUsa1cHuVdaXGfjI6ZRDd3AaoNhwKigcLqxCmdKa5elnHTcfSyvmWYPSgh+wMvuEu80eFErfbDcAsz2JdqNNdHXZChSt2rHOLvkt8rJgmGG4T2Ks4b0VKNo9RAuXf0MnO6I8jc6CpKHIHWnJ89JDKXYtYhju+2V3adx9E4qtRTs1BUry46mg6KnD215oZ5x2qq1O7WIxN5v8LTjWt/q+oYkVOJtDC2l/0vcElIe20w0N/hkvOYsSQ6EyvaQNAB2hqqV+h4XZR2C+YLuSQyl+hbSRACLuaLYVD3k+MRQdKujbdlQK+Tlx//8FHj0VVkETdoMAAAAASUVORK5CYII=");
+	background-size: contain;
+}
+
+.star-rating__star ~ .star-rating__star {
+	width: 40%;
+}
+
+.star-rating__star ~ .star-rating__star ~ .star-rating__star {
+	width: 60%;
+}
+
+.star-rating__star ~ .star-rating__star ~ .star-rating__star ~
+	.star-rating__star {
+	width: 80%;
+}
+
+.star-rating__star ~ .star-rating__star ~ .star-rating__star ~
+	.star-rating__star ~ .star-rating__star {
+	width: 100%;
+}
+
+.star-rating__input {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	position: relative;
+	z-index: 2;
+	opacity: 0;
+	display: inline-block;
+	width: 20%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.star-rating__input:hover+i, .star-rating__input:checked+i {
+	opacity: 1;
+}
+
+.star-rating:hover .current-rating {
+	display: none;
+}
+
+.current-rating.current-rating--1 .star-rating__star, .current-rating.current-rating--1-5 .star-rating__star,
+	.current-rating.current-rating--2 .star-rating__star, .current-rating.current-rating--2-5 .star-rating__star,
+	.current-rating.current-rating--3 .star-rating__star, .current-rating.current-rating--3-5 .star-rating__star,
+	.current-rating.current-rating--4 .star-rating__star, .current-rating.current-rating--4-5 .star-rating__star,
+	.current-rating.current-rating--5 .star-rating__star {
+	opacity: 1;
+}
+
+.current-rating.current-rating--1 .star-rating__star {
+	width: 20%;
+}
+
+.current-rating.current-rating--1-5 .star-rating__star {
+	width: 30%;
+}
+
+.current-rating.current-rating--2 .star-rating__star {
+	width: 40%;
+}
+
+.current-rating.current-rating--2-5 .star-rating__star {
+	width: 50%;
+}
+
+.current-rating.current-rating--3 .star-rating__star {
+	width: 60%;
+}
+
+.current-rating.current-rating--3-5 .star-rating__star {
+	width: 70%;
+}
+
+.current-rating.current-rating--4 .star-rating__star {
+	width: 80%;
+}
+
+.current-rating.current-rating--4-5 .star-rating__star {
+	width: 90%;
+}
+
+.current-rating.current-rating--5 .star-rating__star {
+	width: 100%;
+}
+</style>
+
+</html>

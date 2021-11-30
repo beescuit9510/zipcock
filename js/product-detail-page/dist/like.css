@@ -1,30 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-		    <link rel="stylesheet" type="text/css" href="/default/default.css"/>
-
-
-</head>
-<body>
-    <span class="likeButton">♥</span>
-
-</body>
-<script>
-
-$(document).ready(function () {
-	$(".likeButton").click(function() {
-		$(this).toggleClass("liked");
-	});
-});
-</script>
-
-<style>
-    @import url(https://fonts.googleapis.com/css?family=Gorditas);
+@import url(https://fonts.googleapis.com/css?family=Gorditas);
 
 
 .likeButton {
@@ -61,5 +35,3 @@ $(document).ready(function () {
 	font-size: 62px;
 	opacity: 1;
 }
-</style>
-</html>
