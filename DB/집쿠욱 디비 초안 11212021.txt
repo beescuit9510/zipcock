@@ -4,29 +4,9 @@ member_name
 member_id
 member_pw
 member_phone
-member_level references member_level(level_no) on delete cascade
+level_no references member_level(level_no) on delete cascade
 }
 
-
-business_seller_info( /집쿠욱 판매자 
-member_no 		number		primary key 	references member(member_no) on delete cascade,
-business_no 		varchar2(10) 	not null,		/사업자 번호
-trade name 		varchar2(100) 	not null,		/상호
-representative 		varchar2(100) 	not null,		/대표자
-business location 		varchar2(100) 	not null,		/사업장 소매지
-purchasing safety service 	varchar2(100) 	not null,		/구매안전 서비스
-contact 			varchar2(100) 	not null,		/판매처 전화번호
-email			varchar2(100) 	not null		/판매처 이메일 
-);
-
-member_level( /등급
-level_no		number		primary key,	/등급번호 
-level 		varchar2(100) 	not null		/등급 
-price		number		not null		/등급 가격 
-);
-
-
-일반/판매자/구매자/딜리버리구매자/
 
 address( /주소
 member_no	number		primary key	references member(member_no) on delete cascade,
@@ -36,12 +16,35 @@ receiver_phone	varchar2(100)	not null
 addr		varchar2(100)	not null	
 );
 
+business_seller_info( /집쿠욱 판매자 
+member_no 		number		not null		references member(member_no) on delete cascade,
+business_no 		varchar2(10) 	primary key 		not null,		/사업자 번호
+trade name 		varchar2(100) 	not null,		/상호
+representative 		varchar2(100) 	not null,		/대표자
+business location 		varchar2(100) 	not null,		/사업장 소매지
+contact 			varchar2(100) 	not null,		/판매처 전화번호
+email			varchar2(100) 	not null		/판매처 이메일 
+);
+
+member_level( /등급
+level_no		number		primary key,	/등급번호 
+level_name 		varchar2(100) 	not null		/등급 
+price		number		not null		/등급 가격 
+);
+
+product_category( /상품카테고리
+category_no		number		primary key,
+category			varchar2(100) 	not null
+);
+
+
+product+
 product( /상품
 product_no 		number		primary key,
 member_no 		number		not null,			references business_seller_info(member_no) on delete cascade,
-model_name 		varchar2(300) 	not null,			/상품명
+product_name 		varchar2(100) 	not null,			/상품명
 product detail 		varchar2(4000) 	not null,			/상품 상세설명
-manufacture_date		varchar2(100) 	not null,			/제조일
+manufacture_date		date	 	not null,			/제조일
 stock			number 		not null			/재고량
 how_to_use 		varchar2(1000), 				/사용법
 precautions 		varchar2(1000),				/사용시 주의사항
@@ -49,70 +52,19 @@ expiration date 		varchar2(100), 				/유통기한
 capacity 			varchar2(100), 				/용량
 origin 			varchar2(100) 	not null,			/제조국 country of origin
 manufacturer 		varchar2(100) 	not null,			/생산자 및 소재지
-manager contact 		varchar2(100), 				/ a/s 책임자 번호
+manager contact 		varchar2(100), 	not null			/ a/s 책임자 번호
 consumer counseling contact varchar2(100) 	not null,			/소비자상담 관련 전화 번호
-product_category 		number 		not null,			references product_category(category_no) on delete cascade,
-board_category 		number		not null			references board_category(category_no) on delete cascade
-
-price			number		not null,			constraint a_check check(a_discount between 1 and 9999999) 	/999만원까지
+category_no 		number 		not null,			references product_category(category_no) on delete cascade,
+price 			number		NOT NULL 		constraint price_check check(price between 1 and 9999999),
 limit			number		not null,			/1인당 구매 제한
 );
-
-/*
-product_option(/상품 옵션
-product_no 		number		not null			references product(product_no),
-option_no		number		primary key,
-option			varchar2(100)	not null,
-price			number		not null,			constraint a_check check(a_discount between 1 and 9999999) 	/999만원까지
-limit			number		not null,			/1인당 구매 제한
-);
-*/
-
-product_category( /상품카테고리
-category_no		number		primary key,
-category			varchar2(100) 	not null
-);
-
-board_category( /게시판 카테고리
-category_no		number		primary key,
-category			varchar2(100) 	not null
-);
-
-
-product_like ( /좋아요
-like_no			number		primary key,
-member_no 		number		not null			references member(member_no),
-product_no 		number		not null			references product(product_no)
-);
-
 
 product_img( /상품 이미지
 product_img_no 		number		primary key,
 product_no 		number		not null		references product(product_no),
 filename			varchar2(1500)	not null,
 filepath			varchar2(1500)	not null
-);
-
-
-product_review(/상품 리뷰
-review_no		number		primary key,
-review_content		varchar(4000),
-star			number		not null,
-write_date		date		not null,
-member_no 		number		not null		references member(member_no) on delete cascade	/작성자,
-comment_level		number		not null		/일반 댓글1 판매자 답글2,
-product_ref_no 		number		not null		references product(product_no) on delete cascade,
-review_ref_no 		number		not null		references product_review(review_no) on delete cascade
-);
-
-qna( /Q&A
-qna_no		number		primary key,
-qna_content	varchar(4000)	not null,
-write_date	date		not null,
-member_no 	number		not null		references member(member_no) on delete cascade,		/작성자
-qna_level		number		not null,		/구매자 Q1 판매자 A2
-product_ref_no 	number		not null		references product(product_no) on delete cascade,
-qna_ref_no 	number		not null		references qna_no(qna_no) on delete cascade
+main_img 	char(1)	NOT NULL constraint img_check check(main_img in ('Y','N')) --메인이미지이면 Y
 );
 
 
@@ -122,7 +74,7 @@ product_no 		number		not null		reference product(product_no) on delete cascade,
 shopping method		varchar2(100) 	not null,		/배송방법
 shpping company 		varchar2(100) 	not null,		/배송사
 shpping fee 		varchar2(100) 	not null,		/배송비
-delivery period 		varchar2(100) 	not null		/배송기간
+delivery period 		date 		not null		/배송기간
 );
 
 
@@ -134,6 +86,58 @@ return length 	varchar2(100) 	not null		/교환-반품 신청 기간,
 policy_content 	varchar2(100) 	not null		/취소반품 제한 기준
 );
 
+
+product_review(/상품 리뷰
+review_no		number		not null 		primary key,
+member_no 		number		not null		references member(member_no) on delete cascade	/작성자,
+product_no 		number		not null		references product(product_no) on delete cascade,
+review_content		varchar(4000),	not null
+star			number		not null,
+write_date		date		not null,
+);
+
+review_img(
+review_img_no 		number		primary key,
+review_no		number		not null		references product_review(review_no) on delete cascade,
+filename			varchar2(1500)	not null,
+filepath			varchar2(1500)	not null,
+);
+
+
+product_like ( /좋아요
+like_no			number		primary key,
+member_no 		number		not null			references member(member_no),
+product_no 		number		not null			references product(product_no)
+);
+
+
+
+
+
+qna( /Q&A
+qna_no		number		primary key,
+member_no 	number		not null		references member(member_no) on delete cascade,		/작성자
+product_ref_no 	number		not null		references product(product_no) on delete cascade,
+qna_ref_no 	number		not null		references qna_no(qna_no) on delete cascade
+qna_level		number		not null,		/구매자 Q1 판매자 A2
+qna_title		varchar(200)	not null
+qna_content	varchar(4000)	not null,
+write_date		date		not null,
+);
+
+homepage_qna(
+qna_no		number		primary key,
+member_no 	number		not null		references member(member_no) on delete cascade,		/작성자
+qna_ref_no 	number				references homepage_qna(qna_no) on delete cascade
+qna_level		number		not null,		--구매자 1 관리자 2
+qna_title		varchar(200)	not null,
+qna_content	varchar(4000)	not null,
+write_date		date		not null
+);
+
+
+
+
 payment_info( /주문(영수증)
 payment_info_code	number		primary key	/주문번호,
 member_no 	number		not null		references member(member_no) on delete cascade, 
@@ -143,83 +147,38 @@ receiver_addr	varchar2(100)	not null		/수령인 주소,
 order_date	date		not null		/결제일
 isDeliverd	char(1)		not null 		constraint m_check check(m_discount in ('Y','N'))		/배송여부
 payment_method	varchar2(100)	not null		/결제수단
-
-quantity		number		not null
-
 );
 
-/*
-orderd product( /주문된 상품
-orderd product_no number		primary key,
-payment_info_no 	number		not null		references payment_info(payment_info_no) on delete cascade,
-product_no 	number		not null		references product(product_no) on delete set null,
-option_no 	number		not null		references product_option(option_no) on delete set null,
-quantity		number		not null
 
-);
-*/
-
-
-returned product( /환불된 상품
+returned payment_info(
 payment_info_no 	number		prmary key	references payment_info(payment_info_no) on delete cascade,
 is returned  	char(1)		not null 		constraint m_check check(m_discount in ('Y','N'))		--환불 완료 여부
-return_no 	varchar2(1500)	not null		references return_reson(return_no) on delete cascade, --반품사유
+return_no 		number		not null		references return_reson(return_no) on delete cascade, --반품사유
 );
+
 
 return reason (
-return no 	not null		primary key
+return no 		not null		primary key
 return reason	not null		varchar2(100)
-);
-
-return reason(
-payment_info_no 	number		prmary key	references payment_info(payment_info_no) on delete cascade,
-reason		not null		varchar2(100)
-);
-
-
-
-
-review_img{
-review_img_no 		number		primary key,
-review_no		number		not null		references product_review(review_no) on delete cascade,
-filename			varchar2(1500)	not null,
-filepath			varchar2(1500)	not null,
-main_img			char(1)		not null 		constraint img_check check(m_discount in ('Y','N'))	/메인이미지이면 Y  (
-}
-
-
-homecook_membership(
-member_no 	number		not null		references member(member_no) on delete cascade, 
-start_date		date		not null		 --멤버쉽 처음 결제일
-end_date		date		not null		 --멤버쉽 다음 결제 예정일  
 );
 
 
 homecook_deal ( --할인상품
-deal_no			number		primary number
+deal_no			number		primary 		number
 product_no 		number		not null		references product(product_no) on delete cascade,
+discount_type
 discount_rate		number		not null 		constraint discount_rete_check check(a_discount between 0 and 100)	--할인율
+discount_date		date		not null		
 m_discount		char(1)		not null 		constraint m_check check(m_discount in ('Y','N'))	 	--멤버십 할인 인지 아닌지
-유통기한			
-승인완료
-유효성			
 );
 
 
+게시판 4개
 
-문의(
-문의_no		number		primary number
-member_no 	number		not null		references member(member_no) on delete cascade, 
-문의_제목	varchar2(4000)	not nulll		
-문의_내용	varchar2(4000)	not nulll		
-);
 
-문의답변(
-문의	number		not null		references 문의(문의_no)on delete cascade, 
-문의답변_no		number		primary number
-member_no 	number		not null		references member(member_no) on delete cascade, 
-문의답변_제목	varchar2(4000)	not nulll		
-문의답변_내용	varchar2(4000)	not nulll		
+return reason(
+payment_info_no 	number		prmary key	references payment_info(payment_info_no) on delete cascade,
+reason		not null		varchar2(100)
 );
 
 
@@ -253,19 +212,6 @@ create sequence orderd 문의답변_seq / 문의 답변 테이블;
 
 
 
-집쿠욱 딜리버리 쿠폰(
-쿠폰No
-쿠폰코드
-쿠폰명
-);
-
-쿠폰등급별 할인율(
-쿠폰No references 질쿠욱 딜리버리 쿠폰(쿠폰no)
-등급
-할인율
-);
-
-
 
 집쿠욱 판매자가 멤버 일반 판매자 집쿠욱 배송 판매자
 
@@ -283,6 +229,9 @@ create sequence orderd 문의답변_seq / 문의 답변 테이블;
 부분환불 어떻게..!?
 
 
+메뉴 테이블
+
+order 테이블 따로 있어야함.
 
 
 주소 api 판매자 페이지 있으면 좋겠다!
@@ -290,3 +239,69 @@ create sequence orderd 문의답변_seq / 문의 답변 테이블;
 
 멤버십 가입해주는 페이지.
 판매자 페이지
+
+ordered product/ ordered menu
+
+
+
+뭘 어떻게 했냐..
+과정..!
+작품..!
+css 가 
+구조구조 어떻게 했다!
+구조구조 어떻게 했다!!!
+구조구조구조 어떻게 했다!!!
+구조구조구조구조 어떻게 했다!!!
+이유 
+garbage 컬렉터
+언제 작동;	
+
+딜리트 반복 X;
+
+
+
+
+
+
+
+
+
+
+member
+level_no -> member_lvel
+
+product
+product_name varchar2(300)->varchar2(100)
+manager contact -> manager contact not null
+manufacture_date varchar(100) -> manufacture_date date
+manager_contact - >c_c_contact  
+limit   - > limit NOT NULL limit_check check(limit between 1 and 100),
+
+shipping info 
+product_no - >product_no unique
+
+review
+review_content  not null -> review_content 
+is_reurned  char(1)	->  is_reurned  char(1) NOT NULL constraint returned_payment_info_check check(is_reurned in ('A','Y','N')) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+product+return_policy+shipping+info+;
+
+product+return_policy+shipping+info+;
+
