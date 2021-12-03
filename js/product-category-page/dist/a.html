@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="form-group col-md-6">
+    <label>Min</label>
+    <input id="min" class="form-control" placeholder="${tool.min }" type="number" min="0" max="9999999">
+</div>
+<div class="form-group text-right col-md-6">
+    <label>Max</label>
+    <input id="max" class="form-control" placeholder="9999999" type="number" min="0" max="9999999">
+</div>
+
+</body>
+<script src='https://code.jquery.com/jquery-3.4.1.slim.min.js'></script>
+<script>
+
+
+var currPage = 1;
+var totalPage = 45;
+var pageBlock = 10;
+
+var startNum = currBlock*pageBlock+1
+var endNum = currBlock+pageBlock+1;
+var currBlock = currPage/pageBlock;
+var lastBlock = totalPage/pageBlock;
+
+console.log();
+console.log("currPage    "+currPage);
+console.log("totalPage    "+totalPage);
+console.log("pageBlock    "+pageBlock);
+console.log("currBlock    "+currBlock);
+console.log("lastBlock    "+lastBlock);
+console.log("startNum    "+startNum);
+console.log("endNum    "+endNum);
+console.log();
+console.log();
+console.log();
+console.log();
+
+        // var currPage = 1;
+		// var total = 45;
+		// var perPagePost = 10;
+		// var totalPage = Math.ceil(total/perPagePost);
+        // totalPage = 100;
+		// var pageBlock = 10;
+		// var currBlock = Math.ceil(currPage);
+		// var lastBlock = Math.ceil(pageBlock-totalPage);
+
+        // var start = (pageBlock/currPage);
+		// var end = (pageBlock+(currPage))-
+		
+        // var start = currPage-1;
+		// var end = currPage+8;
+
+
+// console.log("currPage    "+currPage);
+// console.log("total    "+total);
+// console.log("perPagePost    "+perPagePost);
+// console.log("totalPage    "+totalPage);
+// console.log("pageBlock    "+pageBlock);
+// // console.log("currBlock    "+currBlock);
+// // console.log("lastBlock    "+lastBlock);
+// // console.log("start    "+start);
+// console.log("end    "+end);
+// console.log();
+// console.log();
+// console.log();
+// console.log();
+
+
+    $("#min").click(function () {
+    var val =$(this).val();
+    $("#max").attr("min",$(this).val());
+    val> $("#max").val()&& $("#max").val(val);
+})
+
+$("#min").change(function () {
+    var val =$(this).val();
+    $("#max").attr("min",val);
+    val> $("#max").val()&& $("#max").val(val);
+})
+
+</script>
+</html>
