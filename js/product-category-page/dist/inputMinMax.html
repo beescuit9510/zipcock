@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='https://code.jquery.com/jquery-3.4.1.slim.min.js'></script>
+
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="form-group col-md-6">
+        <label>Min</label>
+        <input id="min" oninput="setMin()" class="form-control" placeholder="${tool.min }" type="number" min="0" max="9999999">
+    </div>
+    <div class="form-group text-right col-md-6">
+        <label>Max</label>
+        <input id="max" oninput="setMax()" class="form-control" placeholder="${tool.max }" type="number" min="0" max="9999999">
+    </div>
+    <button class="selectBox">a</button>
+    <button id="price-btn">aaa</button>
+</body>
+<script>
+    
+
+    var basic, b,c,k,by,order,star,show,min,max;
+
+    function initVar() {
+        basic = ".do?"
+        b = "b/*.b}"
+        c = "&c="
+        k = "&k=rd"
+        by = "&br"
+        order = "(al();"
+        star = "#"
+        show = "#"
+        min = "&in"
+        max = "&ax"
+        var a = max==null? max:$("id").attr("placeholder")        
+    }
+    function clickURL() {
+        initVar();
+        var url = basic+b+c+k+by+order+star+show+min+max;
+        $("<a href='"+url+"'></a>")[0].click();
+    };
+    $("#price-btn").click(clickURL);
+    $(".selectBox").change(clickURL);
+    
+    
+    function setMin(e) {
+        var min = Number($("#min").val()); 
+       var max = Number($("#max").val()); 
+       min = min>9999999?9999999:min;
+        $("#min").val(min);
+       $("#max").val(min>max?min:max);
+    }
+    function setMax() {
+        var min = Number($("#min").val());
+        var max = Number($("#max").val()); 
+        max = max>9999999?9999999:max;
+        $("#max").val(max);
+       $("#min").val(min>max?max:min);
+    }
+
+
+</script>
+</html>
