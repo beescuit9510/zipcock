@@ -1,0 +1,27 @@
+.container{
+    min-width: 1395px;
+}
+.table{
+    width:100%;
+    padding: 10px;
+}
+.table tbody tr{
+    width: 100%;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.seller-mypagewarp{
+    width: 80%;
+}
+.dilivery-status{
+    float: left; 
+    width: 50%;
+}
+.mypage-context{
+    width: 70%; 
+    min-width: 760px;
+    float: right;
+
+}
