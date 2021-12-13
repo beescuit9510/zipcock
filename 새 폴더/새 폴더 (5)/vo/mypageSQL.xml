@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mypage">
+	<insert id="insert" parameterType="insertObj">
+	
+		insert into
+
+	    <if test="addr != null">
+			address values(#{addr.memberNo},address_seq.nextval,#{addr.receiverName},#{addr.receiverPhone},#{addr.addr}
+	    </if>
+	    <if test="q != null">
+			qna values(qna_seq.nextval,#{q.memberNo},#{q.productRefNo},null,1,#{q.qnaTitle},#{q.qnaContent},sysdate
+	    </if>
+	    <if test="hq != null">
+			homepage_qna values(homepage_qna_seq.nextval,#{hq.memberNo},null,1,#{hq.qnaTitle},#{hq.qnaContent},sysdate
+	    </if>
+	    <if test="r != null">
+			product_review values(review_seq.nextval,#{r.memberNo},#{r.productNo},#{r.reviewContent},#{r.star},sysdate
+	    </if>
+		<!-- 리뷰 이미지  등록 -->
+	    <if test="like != null">
+			product_like values(product_like_seq.nextval,#{like.memberNo},#{like.productNo}
+	    </if>
+			
+			)
+	</insert>
+	<update id="update" parameterType="updateObj">
+
+		update
+		
+		<!-- 개인 정보 수정 (회원 수정) -->
+		<if test="m != null">
+			member set member_id= #{m.memberId}, member_name= #{m.memberName}, member_phone= #{m.memberPhone} where member_no = #{m.memberNo}				
+	    </if>
+
+		<!-- 비밀번호 수정 -->
+		<if test="pwM != null">
+			member set member_pw= #{pwM.memberPw} where member_no = #{pwM.memberNo}
+	    </if>
+
+		<!-- 배송지 수정 -->
+		<if test="addr != null">
+			address set receiver_name= #{addr.receiverName}, receiver_phone = #{addr.receiverPhone}, addr = #{addr.addr}
+			where addr_no = #{addr.addrNo} and member_no = #{addr.memberNo}
+	    </if>
+
+		<!-- 상품 Q&A Q 수정 -->
+		<if test="q != null">
+			qna set qna_title= #{q.qnaTitle}, qna_content = #{q.qnaContent} 
+			where qna_no = #{q.qnaNo} and member_no = #{q.memberNo}
+	    </if>
+
+		<!-- 홈페이지 Q&A Q 수정 -->
+		<if test="hq != null">
+			homepage_qna set qna_title = #{hq.qnaTitle}, qna_content = #{hq.qnaContent}
+			where qna_no = #{hq.qnaNo} and member_no = #{hq.memberNo}
+	    </if>
+
+		<!-- 리뷰 수정 -->
+		<if test="r != null">
+			product_review set review_content = #{r.reviewContent}, star = #{r.star}
+			where review_no = #{r.reviewNo} and member_no = #{r.memberNo}
+	    </if>
+		
+		<!-- 리뷰 이미지 수정 -->
+		<!-- 좋아요 수정 은 없음-->
+		<!-- 좋아요  수정(좋아요 수정)-->
+	</update>
+	<delete id="delete" parameterType="deleteObj">
+	
+	
+		delete from
+
+		<!-- 개인 정보 삭제 (회원 삭제) -->
+		<if test="m != null">
+			member where member_id = #{m.memberId} and member_no = #{m.memberNo}
+	    </if>
+
+		<!-- 배송지 삭제 -->
+		<if test="addr != null">
+			address where addr_no = #{addr.addrNo} and member_no = #{addr.memberNo}
+	    </if>
+
+		<!-- 상품 Q&A Q 삭제 -->
+		<if test="q != null">
+			qna where qna_no = #{q.qnaNo} and member_no = #{q.memberNo}
+	    </if>
+
+		<!-- 홈페이지 Q&A Q 삭제-->
+		<if test="hq != null">
+			homepage_qna where qna_no = #{hq.qnaNo} and member_no = #{hq.memberNo}
+	    </if>
+
+		<!-- 리뷰 삭제 -->
+		<!-- 리뷰이미지 는 on delete cascade -->
+		<if test="r != null">
+			product_review where review_no = #{r.reviewNo} and member_no = #{r.memberNo}
+	    </if>
+		
+		<!-- 좋아요  삭제 (좋아요 취소)-->
+		<if test="like != null">
+			product_like where member_no = #{like.memberNo} and product_no = #{like.productNo}
+	    </if>
+	</delete>
+	<!-- 총 게시물 cnt 구하기 -->
+	<select id="selectCnt" parameterType="string" resultType="_int">
+		select count(*) as cnt from #{table} where member_no = #{memberNo}
+	</select>
+	
+	<!--내 문의 목록보기-->
+	<select id="selectQ" resultType="arraylist">
+		select t2.* from( select 
+			rownum as rnum,
+			t.qna_no as qnaNo,
+			t.member_no as memberNo,
+			t.qna_title as qnaTitle,
+			t.qna_content as qnaContent,
+			t.write_date as writeDate
+		from( select * from homepage_qna where member_no = #{memberNo} order by write_date desc) t)t2
+		where t2.rnum between #{start} and #{end}
+	</select>
+	<!-- 내 배송지 목록보기 -->
+	<select id="selectAddr" resultType="arraylist">
+		select t2.* from( select rownum as rnum, 
+			t.member_no as memberNo,
+			t.addr_no as addrNo,
+			t.receiver_name as receiverName,
+			t.receiver_phone as receiverPhone,
+			t.addr as addr
+		from( select * from address where member_no = #{memberNo} order by addr_no ) t)t2
+		where t2.rnum between #{start} and #{end}
+	</select>
+
+
+		
+</mapper>

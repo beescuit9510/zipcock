@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+	<settings>
+	<setting name="jdbcTypeForNull" value="NULL"/>
+	</settings>
+<typeAliases>
+		<typeAlias type="kr.or.table.model.vo.Member" alias="m"/>
+		<typeAlias type="kr.or.table.model.vo.ProductReview" alias="productReview"/>		
+		<typeAlias type="kr.or.table.model.vo.Address" alias="address"/>		
+		<typeAlias type="kr.or.table.model.vo.Qna" alias="qna"/>		
+		<typeAlias type="kr.or.table.model.vo.HomepageQna" alias="homepageQna"/>		
+		<typeAlias type="kr.or.table.model.vo.ProductLike" alias="like"/>		
+		<typeAlias type="kr.or.zipcoock.mypage.vo.InsertObj" alias="insertObj"/>	
+		<typeAlias type="kr.or.zipcoock.mypage.vo.UpdateObj1" alias="updateObj"/>	
+		<typeAlias type="kr.or.zipcoock.mypage.vo.DeleteObj1" alias="deleteObj"/>	
+		<typeAlias type="kr.or.zipcoock.board.vo.ProductCard" alias="card"/>	
+		<typeAlias type="kr.or.zipcoock.board.vo.SearchTool" alias="tool"/>	
+		<typeAlias type="kr.or.table.model.vo.BusinessSellerInfo" alias="bsi"/>
+</typeAliases>
+</configuration>
