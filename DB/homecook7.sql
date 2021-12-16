@@ -77,8 +77,8 @@ CREATE TABLE  return_policy(
 
 CREATE TABLE  product_review  (
 	 review_no 	number	NOT NULL primary key,
-    member_no 	number	NOT NULL references member(member_no) on delete cascade,
-    product_no 	number	NOT NULL references product(product_no) on delete cascade,
+    	 member_no 	number	NOT NULL references member(member_no) on delete cascade,
+	 product_no 	number	NOT NULL references product(product_no) on delete cascade,
 	 review_content 	varchar2(4000)	not null,
 	 star 	number	not null constraint star_check check(star between 1 and 5),
 	 write_date 	date	NOT NULL
@@ -154,7 +154,6 @@ CREATE TABLE  homecook_deal(
 	 discount_date 	date	not NULL,
 	 discountend_date 	date	not NULL
 );
-
 
 CREATE TABLE  ordered_product(
 	 ordered_product_no 	number	NOT NULL primary key,
@@ -423,6 +422,21 @@ alter table product_like add constraint like_primary_key primary key(member_no,p
 
 alter table homecook_deal add unique(product_no);
 alter table qna add unique(qna_ref_no);
+alter table qna modify(qna_title varchar(180));
+alter table homepage_qna modify(qna_title varchar(180));
+alter table qna modify(qna_content varchar(2000));
+alter table homepage_qna modify(qna_content varchar(2000));
+alter table address add title varchar(100);
+
+
+
+
+
+
+
+
+
+
 select * from homecook_deal;
 
 
