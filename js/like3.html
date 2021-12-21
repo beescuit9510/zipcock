@@ -11,8 +11,10 @@
 
 </head>
 <body>
-    <span class="likeButton">♥</span>
+	<div class="a">
+		<span class="likeButton">♥</span>
 
+	</div>
 </body>
 <script>
 
@@ -26,10 +28,12 @@ $(document).ready(function () {
 <style>
     @import url(https://fonts.googleapis.com/css?family=Gorditas);
 
-
+.a{
+	margin: 500px;
+}
 .likeButton {
 	display: inline-block;
-	font-size: 62px;
+	font-size: 32px;
 	color: #cca2a3;
 	cursor: pointer;
 	-webkit-transform: translate(-50%, -50%);
@@ -58,7 +62,7 @@ $(document).ready(function () {
 }
 
 .likeButton.liked:after {
-	font-size: 62px;
+	font-size: 32px;
 	opacity: 1;
 }
 </style>

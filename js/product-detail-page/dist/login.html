@@ -56,6 +56,20 @@ button:first-of-type{
 <script src='https://code.jquery.com/jquery-3.4.1.slim.min.js'></script>
 <script>
     var idR = /[A-Z][a-zA-Z0-9]{4,}/;
+    var pw = /[a-zA-Z0-9]{8,12}/;
+
+
+var phone = /^\d{3}-\d{4}-\d{4}/;
+$("#m-btn").click(function () {
+    if(!phone.test($("#phone").val())){
+    	$("#phone").val("");
+    	alert("숫자로만 12자리로 입력해주세요. ex) 01012341234")
+        return false;
+    }
+    return true;
+
+}
+
 
     $("#id").blur(function () {
         // !idR.test($("#id").val()) && alert("5글자이상, 첫글자는 대문자이고 영문자, 숫자만 가능");
@@ -99,5 +113,29 @@ button:first-of-type{
             return false;
         }
     })
+
+
+
+    function totalPrice(){
+        [...document.getElementsByClassName("product-checkbox")].forEach(e => {
+        if($(this).prop("checked")){
+            var i = $(this).attr("id").indexOf("-");
+            var productNo = $(this).attr("id").substring(0,i+1);
+            console.log($(this).attr("id"));
+            console.log(productNo);
+            
+            var quantity = $("#"+productNo).val();
+            var price = $("#"+productNo+"-price").val();
+
+            console.log(quantity);
+            console.log(price);
+        }
+
+        var items = []
+        items.push()
+    });
+    
+    }
+
 </script>
 </html>
