@@ -429,6 +429,9 @@ alter table homepage_qna modify(qna_content varchar(2000));
 alter table address add title varchar(100);
 
 
+alter table ordered_product add price number ;
+alter table ordered_product add shipping_fee number ;
+alter table product_review add ordered_product_no number ;
 
 
 
