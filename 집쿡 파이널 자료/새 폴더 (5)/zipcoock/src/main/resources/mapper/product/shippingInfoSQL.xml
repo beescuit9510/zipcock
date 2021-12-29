@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="shippingInfo">
+
+<insert id="insertShippingInfo" parameterType="si">
+insert into shipping_info values(SHIPPING_INFO_SEQ.NEXTVAL,#{productNo},#{shippingMethod},#{shippingCompany},#{shippingFee},#{shippingPeriod})
+</insert>
+
+</mapper>
+ 
+ 

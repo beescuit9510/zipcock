@@ -1,0 +1,473 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/resources/css/deliverySeller/addMarket.css">
+
+<!-- bootstrap css -->
+<link rel="stylesheet" href="/resources/css/deliverySeller/bootstrap.css">
+<!-- jQuery -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.js"></script>
+<!-- bootstrap jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+</head>
+<body>
+<div class="s-wrapper">
+	<jsp:include page="/WEB-INF/views/common/deliveryHeader.jsp" />
+	<div class="main_field">        	
+        	<div class="main_content2">
+        		<div class="side_nav">
+	        		<div class="my_info">
+	        			<div class="my_info_div">
+	        				<span class="my_info_span">환영합니다</span>
+	        			</div>
+	        			<div class="user_div">
+	        				<div class="user_div_div">
+	        					<div class="user_div_content">
+	        						<span class="user_div_name">${sessionScope.m.memberName }<span class="user_div_nim">님</span></span>
+	        					</div>
+	        				</div>
+	        			</div>
+	        		</div>
+        			<div class="side_nav_content">
+	        			<div class="side_nav_div side_nav_div_selected"><span class="side_nav_span side_nav_span_selected"><a href="/manageMarketFrm.do">매장관리</a></span></div>
+	        			<div class="side_nav_div"><span class="side_nav_span"><a href="/manageMenuFrm.do">메뉴관리</a></span></div>
+	        			<div class="side_nav_div"><span class="side_nav_span"><a href="/">주문접수</a></span></div>
+	        			<div class="side_nav_div"><span class="side_nav_span"><a href="/">리뷰관리</a></span></div>       			
+        			</div>
+        		</div>
+        		
+        		<div class="content_div">
+        			<div class="content_title">매장관리</div>
+        			<div class="content_div_area">
+        				<div class="content_div_div">
+        					<div class="content_div_content">
+        						<div class="content_div_div_content">
+        							<div class="content_div_info">
+        								<div class="content_div_title" style="font-weight: bold">매장 정보 등록</div>
+        								<div class="content_div_end"></div>
+        								<br>
+        								<div class="container2">
+	        								<form action="/modifyMarket.do" method="post" enctype="multipart/form-data">
+	        								<input type="hidden" name="memberNo" value="${sessionScope.m.memberNo }">
+	        									<fieldset>
+		        									
+		        									<span class="info_span">필수 정보</span>
+		        									<hr>
+		        									
+		        									<input type="hidden" name="storeNo" value="${zs.storeNo }">
+		        									
+												    <div class="row">
+														<label for="storeName" class="col-2 col-form-label">상호명</label>
+														<div class="col-5">
+															<input type="text" class="form-control" id="storeName"
+																name="storeName" placeholder="상호명을 입력하세요." maxlength="20" value="${zs.storeName }">
+														</div>
+														<div class="col-4">
+															<span class="span_chk" id="marketNameChk"></span>
+														</div>
+													</div>
+	        										<br>
+	        										
+	        										<div class="row">
+														<label for="storeTime" class="col-2 col-form-label">운영시간</label>
+														<div class="col-10">
+															<textarea class="form-control" name="storeTime"
+																id="storeTime" rows="4" placeholder="운영시간을 입력하세요.">${zs.storeTime }</textarea>
+														</div>
+													</div>
+													<br>
+	        										
+	        										<div class="row">
+	        											<label for="storePhone" class="col-2 col-form-label">전화번호</label>
+	        											<div class="col-5">
+	        												<input type="text" class="form-control" id="storePhone"
+	        											 		name="storePhone" placeholder="전화번호를 입력하세요. (- 제외)" maxlength="11" value="${zs.storePhone }">
+	        											</div>
+	        											<div class="col-4">
+															<span class="span_chk" id="marketPhoneChk"></span>
+														</div>
+	        										</div>
+	        										<br>
+	        										
+	        										<div class="row">
+	        											<label for="minPrice" class="col-2 col-form-label">최소주문금액</label>
+	        											<div class="col-5">
+	        												<input type="text" class="form-control" id="minPrice"
+	        											 		name="minPrice" placeholder="최소주문금액을 입력하세요." maxlength="5" value="${zs.minPrice }">
+	        											</div>
+	        											<div class="col-4">
+															<span class="span_chk" id="minPriceChk"></span>
+														</div>
+	        										</div>
+	        										<br>
+	        										
+	        										<div class="row">
+	        											<label class="col-2 col-form-label">주소입력</label>
+	        											<div class="col-4">
+															<input type="text" name="postcode" id="postcode" class="form-control add_margin" readonly placeholder="우편번호"
+															 value="${zs.postcode }">
+	        											</div>
+	        											<div class="col-2" style="padding: 0;">
+															<button type="button" class="btn btn-primary" id="findpostcode" style="width: 70px;">찾기</button>	        											
+	        											</div>
+	        										</div>
+	        										
+	        										
+	        										<div class="row">
+														<label class="col-2 col-form-label"> </label>
+														<div class="col-8">
+															<input type="text" name="address1" id="address1" class="form-control add_margin" readonly placeholder="주소"
+															 value="${zs.address1 }">			
+														</div>
+													</div>
+										
+													<div class="row">
+														<label class="col-2 col-form-label"> </label>
+														<div class="col-8">
+															<input type="text" name="address2" id="address2" class="form-control add_margin" placeholder="상세주소" maxlength="40"
+															 value="${zs.address2 }">														
+														</div>
+													</div>
+	        										<br>
+	        										
+													<div class="row">
+														<label for="originInfo" class="col-2 col-form-label">원산지 정보</label>
+														<div class="col-10">
+															<textarea class="form-control" name="originInfo"
+																id="originInfo" rows="4" placeholder="재료명: 원산지 (돼지고기: 국내산, 닭고기: 브라질산)">${zs.originInfo }</textarea>
+														</div>
+													</div>
+													<br>
+													
+													<div class="row">
+														<label class="col-2 col-form-label">카테고리</label>
+														<div class="col-3">
+															<select id="category1" name="category1" class="form-select add_margin" >
+																<option value="${zs.category1 }" selected readonly style="background-color: #ebebeb;">${zs.category1 }</option>
+																<option value="한식">한식</option>
+											                    <option value="치킨">치킨</option>
+											                    <option value="분식">분식</option>
+											                    <option value="돈까스">돈까스</option>
+											                    <option value="족발/보쌈">족발/보쌈</option>
+											                    <option value="찜/탕">찜/탕</option>
+											                    <option value="구이">구이</option>
+											                    <option value="피자">피자</option>
+											                    <option value="중식">중식</option>
+											                    <option value="일식">일식</option>
+											                    <option value="회/해물">회/해물</option>
+											                    <option value="양식">양식</option>
+											                    <option value="커피/차">커피/차</option>
+											                    <option value="디저트">디저트</option>
+											                    <option value="간식">간식</option>
+											                    <option value="아시안">아시안</option>
+											                    <option value="샌드위치">샌드위치</option>
+											                    <option value="샐러드">샐러드</option>
+											                    <option value="버거">버거</option>
+											                    <option value="멕시칸">멕시칸</option>
+											                    <option value="도시락">도시락</option>
+											                    <option value="죽">죽</option>
+											        		</select>
+											        		<select id="category2" name="category2" class="form-select">
+											        			<c:choose>
+											        				<c:when test="${empty zs.category2 }">
+											        					<option value="" selected readonly>추가 선택</option>
+											        				</c:when>
+											        				<c:when test="${not empty zs.category2 }">
+											        					<option value="${zs.category2 }" selected readonly style="background-color: #ebebeb;">${zs.category2 }</option>
+												        				<option value=''>선택하지 않음</option>
+												        				<option value='1인분'>1인분</option>
+												        				<option value='프랜차이즈'>프랜차이즈</option>
+											        				</c:when>
+											        			</c:choose>
+													        </select>
+											        	</div>
+											        </div>
+											        <br>
+													
+													<div class="row">
+														<label class="col-2 col-form-label">매장 로고</label>
+														<div class="col-8">
+															<input type="hidden" name="status" value="1">
+															<c:forEach items="${zs.list }" var="f">
+																<label for="formFile" class="btn btn-primary add_margin" style="width: 70px;">찾기</label>
+																<input class="form-control" type="file" name="files" id="formFile" accept=".gif, .jpg, .jpeg, .png" style="display:none;">
+																<div class="logo_img"><img src='/resources/upload/zcdSeller/${f.filename }'></div>
+															</c:forEach>
+														</div>
+													</div>
+													<br>
+												
+	        										<br><br>
+	        										<span class="info_span">선택 정보</span>
+		        									<hr>
+	        										
+	        										<div class="row">
+														<label for="storeInfo" class="col-2 col-form-label">매장소개</label>
+														<div class="col-10">
+															<textarea class="form-control" name="storeInfo"
+																id="storeInfo" rows="4" placeholder="매장 소개를 입력하세요.">${zs.storeInfo }</textarea>
+														</div>
+													</div>
+													<br>
+													
+													<div class="row">
+														<label for="storeNotice" class="col-2 col-form-label">공지사항</label>
+														<div class="col-10">
+															<textarea class="form-control" name="storeNotice"
+																id="storeNotice" rows="4" placeholder="공지사항을 입력하세요.">${zs.storeNotice }</textarea>
+														</div>
+													</div>
+													<br>
+													
+													<div class="row">
+														<label for="storeTip" class="col-2 col-form-label">팁/안내</label>
+														<div class="col-10">
+															<textarea class="form-control" name="storeTip"
+																id="storeTip" rows="4" placeholder="팁 또는 안내 내용을 입력하세요.">${zs.storeTip }</textarea>
+														</div>
+													</div>
+													<br><br>
+	        									
+	        									</fieldset>
+	        									
+	        									<div class="row">
+		        									<a class="cart_btn" style="font-weight: 400; margin-left:200px;" href="/manageMarketFrm.do">취소</a>
+		        									<div class="col-md-auto"> </div>
+		        									<input type="submit" style="font-weight: 400; margin-right:200px;" class="buy_btn" id="enrollsubmit" value="등록">	        									
+	        									</div>
+	        								</form>
+        								
+        								</div>
+        							</div>
+        							<br>
+        							<div class="content_div_end"></div>
+        						</div>
+        					</div>
+        				</div>
+        			</div>
+        		</div>
+        	</div> <!-- main content -->
+        </div> <!-- main field -->
+    <script>
+    	$(function() {
+    		
+    		var storeNameChk = true;
+    		var storePhoneChk = true;
+    		var minPriceChk = true;
+    		var address2Chk = true;
+    		var divTag = document.querySelector(".logo_img");
+    		
+    		$("#findpostcode").on("click", function() {
+    			return findAddr();
+    		});
+    		
+    		function findAddr() {
+    			new daum.Postcode({
+    				oncomplete : function(data) {
+    					$("#postcode").val(data.zonecode);
+    					if (data.userSelectedType === 'R') {
+    						$("#address1").val(data.roadAddress);
+    					} else {
+    						$("#address1").val(data.jibunAddress);
+    					}
+    					$("#address2").focus();
+    				}
+    			}).open();
+    		}
+    		
+    		$("#category1").on("change", function() {
+    			$(this).next().empty();
+    			$(this).next().append("<option value='' selected>선택하지 않음</option>");
+    			$(this).next().append("<option value='1인분'>1인분</option>");
+    			$(this).next().append("<option value='프랜차이즈'>프랜차이즈</option>");
+   		    });
+    		
+    		$("input[name=files]").on("change", function() {
+    			var fileVal = $(this).val();
+    			var pathPoint = fileVal.lastIndexOf('.');
+    			var filePoint = fileVal.substring(pathPoint+1, this.length);
+    			var fileType = filePoint.toLowerCase();
+    			var fileSize = 10 * 1024 * 1024; // 10메가
+    			if (fileType == 'jpg' || fileType == 'png' || fileType == 'jpeg' || fileType == 'gif') {
+    				var uploadFileSize = this.files[0].size;
+    				if (uploadFileSize > fileSize) {
+    					alert("용량은 10MB 이하로 가능합니다.");
+    					$(this).val("");
+    				}
+    			} else if (fileVal == "") {
+    				
+    			} else {
+    				alert("이미지 파일만 가능합니다.");
+    				$(this).val("");
+    			}
+    			loadImg(this);
+    		});
+    		
+    		function loadImg(obj) {
+    			var files = obj.files;
+    			if (files.length != 0) {
+    				var reader = new FileReader();
+    				reader.readAsDataURL(files[0]);
+    				reader.onload = function(e) {
+    					var imgTag = document.createElement("img");
+    					imgTag.setAttribute("src", e.target.result)
+    					divTag.innerHTML = "";
+    					divTag.appendChild(imgTag);
+    					$("[name=status]").val(2);
+    				}
+    			} else {
+    				divTag.innerHTML = "";
+    			}
+    		}
+    		
+    		
+    		$("#enrollsubmit").on("click", function() {
+    			return checkAddMarket();
+    		});
+    		
+    		function checkAddMarket() {
+    			var storeName = $("#storeName").val();
+    			var storeTime = $("#storeTime").val();
+    			var storePhone = $("#storePhone").val();
+    			var minPrice = $("#minPrice").val();
+    			var postcode = $("#postcode").val();
+    			var address1 = $("#address1").val();
+    			var address2 = $("#address2").val();
+    			var originInfo = $("#originInfo").val();
+    			var category1 = $("#category1").val();
+    			var files = $("input[name=files]").val();
+    			
+    			if (storeName == "" || storeNameChk == false) {
+    				alert("상호명을 확인하세요.");
+    				return false;
+    			} else if (storeTime == "") {
+    				alert("운영시간을 확인하세요.");
+    				return false;
+    			} else if (storePhone == "" || storePhoneChk == false) {
+    				alert("전화번호를 확인하세요.");
+    				return false;
+    			} else if (minPrice == "" || minPriceChk == false) {
+    				alert("최소주문금액을 확인하세요.");
+    				return false;
+    			} else if (postcode == "" || address1 == "" || address2 == "" || address2Chk == false) {
+    				alert("주소를 확인하세요.");
+    				return false;
+    			} else if (originInfo == "") {
+    				alert("원산지 정보를 확인하세요.");
+    				return false;
+    			} else if (category1 == null) {
+    				alert("카테고리를 확인하세요.");
+    				return false;
+    			} else if (divTag.innerHTML = "") {
+    				alert("매장 로고를 선택하세요.");
+    				return false;
+    			} else {
+    				return true;
+    			}
+    		}
+    		
+    		$("#storeName").on("keyup", function() {
+    			var storeName = $(this).val();
+    			var storeNo = $(this).parent().parent().prev().val();
+    			console.log(storeNo);
+    			var storeNameReg = /^[0-9a-zA-Z가-힣\s]{2,20}$/;
+    			if (storeNameReg.test(storeName)) {
+    				$.ajax({
+    					url : "/storeNameCheck2.do",
+    					data : {storeName : storeName, storeNo : storeNo},
+    					type : "post",
+    					success : function(data) {
+    						if (data == 0) {
+    							$("#marketNameChk").html("");
+    							/*
+    							$("#marketNameChk").html("사용 가능한 상호명입니다.");
+    							$("#marketNameChk").css("color", "#9ac6e8");
+    							*/
+    							storeNameChk = true;
+    						} else if (data == 1) {
+    							$("#marketNameChk").html("사용중인 상호명입니다.");
+    							$("#marketNameChk").css("color", "red");
+    							storeNameChk = false;
+    						}
+    					}
+    				});
+    			} else {
+    				$("#marketNameChk").html("다시 입력해주세요.")
+    				$("#marketNameChk").css("color", "red");
+    				storeNameChk = false;
+    			}
+    		});
+    		
+    		$("#storePhone").on("keyup", function() {
+    			var storePhone = $(this).val();
+    			var storeNo = $(this).parent().parent().prev().prev().prev().prev().prev().val();
+    			console.log(storeNo);
+    			var storePhoneReg = /^[0-9]{10,11}$/;
+    			if (storePhoneReg.test(storePhone)) {
+    				$.ajax({
+    					url : "/storePhoneCheck2.do",
+    					data : {storePhone : storePhone, storeNo : storeNo},
+    					type : "post",
+    					success : function(data) {
+    						if (data == 0) {
+    							$("#marketPhoneChk").html("");
+    							/*
+    							$("#marketPhoneChk").html("사용 가능한 전화번호입니다.");
+    							$("#marketPhoneChk").css("color", "#9ac6e8");
+    							*/
+    							storePhoneChk = true;
+    						} else if (data == 1) {
+    							$("#marketPhoneChk").html("사용중인 전화번호입니다.");
+    							$("#marketPhoneChk").css("color", "red");
+    							storePhoneChk = false;
+    						}
+    					}
+    				});
+    			} else {
+    				$("#marketPhoneChk").html("다시 입력해주세요.")
+    				$("#marketPhoneChk").css("color", "red");
+    				storePhoneChk = false;
+    			}
+    		});
+    		
+    		$("#minPrice").on("keyup", function() {
+    			var minPrice = $(this).val();
+    			var minPriceReg = /^[1-9][0-9]{3,4}$/;
+    			if (minPriceReg.test(minPrice)) {
+    				$("#minPriceChk").html("");
+					/*
+    				$("#minPriceChk").html("사용 가능");
+					$("#minPriceChk").css("color", "#9ac6e8");
+					*/
+    				minPriceChk = true;
+				} else {
+					$("#minPriceChk").html("1,000원 이상 입력해주세요.");
+					$("#minPriceChk").css("color", "red");
+					minPriceChk = false;
+    			}
+    		});
+    		
+    		$("#address2").on("keyup", function() {
+    			var address2 = $(this).val();
+    			var address2Reg = /^[0-9a-zA-Z가-힣][0-9a-zA-Z가-힣\s]{1,40}$/;
+    			if (address2Reg.test(address2)) {
+    				address2Chk = true;
+				} else {
+					address2Chk = false;
+    			}
+    		});
+    		
+    	});
+    </script>
+	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+</div>
+</body>
+</html>
